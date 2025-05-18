@@ -247,10 +247,10 @@ body {
 /* 작은 모바일 용 */
 @media (max-width: 400px) {
   .card-container {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
   .slot-container {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(6, 1fr);
   }
   .card,
   .slot {
