@@ -243,3 +243,28 @@ body {
     padding: 1px 4px;
   }
 }
+
+/* 작은 모바일 용 */
+@media (max-width: 400px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .slot-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .card,
+  .slot {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* 노트북 용 */
+@media (min-width: 768px) and (max-width: 1200px) {
+  .card-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .slot-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
