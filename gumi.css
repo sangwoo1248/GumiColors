@@ -68,7 +68,7 @@ body {
 /* 슬롯 */
 .slot-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   justify-content: center;
   margin-bottom: 20px;
@@ -212,13 +212,13 @@ body {
   .card-container {
     grid-template-columns: repeat(3, 1fr);
     gap: 5px;
-    margin-top: 60px; /* 👈 카드 영역 아래로 */
+    margin-top: 60px;
   }
 
   .slot-container {
     grid-template-columns: repeat(2, 1fr);
     gap: 5px;
-    margin-top: 40px; /* 👈 슬롯 영역 아래로 */
+    margin-top: 40px;
   }
 
   .card,
@@ -262,7 +262,7 @@ body {
 /* 노트북 용 */
 @media (min-width: 768px) and (max-width: 1200px) {
   .card-container {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
   .slot-container {
     grid-template-columns: repeat(4, 1fr);

@@ -4,7 +4,6 @@ const cardContainer = document.querySelector(".card-container");
 
 let draggedCard = null;
 
-// PC용 드래그
 cards.forEach((card) => {
   card.addEventListener("dragstart", () => {
     draggedCard = card;
@@ -16,13 +15,12 @@ cards.forEach((card) => {
     draggedCard = null;
   });
 
-  // ✅ 모바일용 터치 대응
-  card.addEventListener("touchstart", (e) => {
+  card.addEventListener("touchstart", () => {
     draggedCard = card;
     card.style.opacity = "0.5";
   });
 
-  card.addEventListener("touchend", (e) => {
+  card.addEventListener("touchend", () => {
     card.style.opacity = "1";
     draggedCard = null;
   });
@@ -43,7 +41,6 @@ slots.forEach((slot) => {
     }
   });
 
-  // ✅ 모바일 터치 대응
   slot.addEventListener("touchend", () => {
     if (draggedCard && !slot.querySelector("img")) {
       slot.appendChild(draggedCard);
@@ -57,25 +54,20 @@ slots.forEach((slot) => {
   });
 });
 
-// X버튼 생성
 function attachRemoveButton(slot, card) {
   removeRemoveButton(slot);
-
   const btn = document.createElement("button");
   btn.textContent = "×";
   btn.className = "x-btn";
   btn.onclick = () => moveCardBack(card, btn);
-
   slot.appendChild(btn);
 }
 
-// 기존 버튼 제거
 function removeRemoveButton(slot) {
   const existingBtn = slot.querySelector(".x-btn");
   if (existingBtn) existingBtn.remove();
 }
 
-// 카드 원래 위치로 이동
 function moveCardBack(card, btn) {
   card.removeAttribute("style");
   card.className = "card";
@@ -84,7 +76,6 @@ function moveCardBack(card, btn) {
   btn.remove();
 }
 
-// 리셋 버튼
 document.querySelector(".reset-btn").addEventListener("click", () => {
   document.querySelectorAll(".slot .card").forEach((card) => {
     const btn = card.parentElement.querySelector(".x-btn");
@@ -92,10 +83,7 @@ document.querySelector(".reset-btn").addEventListener("click", () => {
   });
 });
 
-// 저장 버튼 (스프레드시트 연동)
-document.querySelector(".save-btn").addEventListener("click", handleSave);
-
-function handleSave() {
+document.querySelector(".save-btn").addEventListener("click", () => {
   const slotImages = document.querySelectorAll(".slot img");
   const cardOrder = [];
 
@@ -108,7 +96,6 @@ function handleSave() {
     }
   });
 
-  // 여기에 복사한 Google Apps Script 웹 앱 URL을 넣으세요
   fetch(
     "https://script.google.com/macros/s/AKfycbx9mEwSDeBFCFGyXSexbGYApYc6gu0gtvdG3LZSHPXh17B_ygt6A2VEyTftkrS2RM02/exec",
     {
@@ -126,4 +113,4 @@ function handleSave() {
     .catch(() => {
       alert("저장 중 오류가 발생했습니다.");
     });
-}
+});
