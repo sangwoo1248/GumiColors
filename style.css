@@ -1,0 +1,66 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: sans-serif;
+}
+
+body {
+  background: url('Img/background.png') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  flex-direction: column;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 40px 0;
+}
+
+.mycolor {
+  width: 200px;
+  max-width: 500px;
+  height: auto;
+}
+
+.start-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 180px;
+}
+
+.start-button img {
+  width: 150px;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .mycolor {
+    width: 90%;
+  }
+
+  .start-button img {
+    width: 100px;
+  }
+}
+
+@media (min-width: 992px) {
+  .mycolor {
+    width: 95%;
+  }
+
+  .start-button img {
+    width: 90px;
+  }
+}
