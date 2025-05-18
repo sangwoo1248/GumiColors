@@ -4,7 +4,7 @@ const cardContainer = document.querySelector(".card-container");
 
 let draggedCard = null;
 
-// 카드 드래그 시작
+// PC용 드래그
 cards.forEach((card) => {
   card.addEventListener("dragstart", () => {
     draggedCard = card;
@@ -15,13 +15,36 @@ cards.forEach((card) => {
     card.style.display = "block";
     draggedCard = null;
   });
+
+  // ✅ 모바일용 터치 대응
+  card.addEventListener("touchstart", (e) => {
+    draggedCard = card;
+    card.style.opacity = "0.5";
+  });
+
+  card.addEventListener("touchend", (e) => {
+    card.style.opacity = "1";
+    draggedCard = null;
+  });
 });
 
-// 슬롯 드롭 설정
 slots.forEach((slot) => {
   slot.addEventListener("dragover", (e) => e.preventDefault());
 
   slot.addEventListener("drop", () => {
+    if (draggedCard && !slot.querySelector("img")) {
+      slot.appendChild(draggedCard);
+      draggedCard.style.position = "absolute";
+      draggedCard.style.top = 0;
+      draggedCard.style.left = 0;
+      draggedCard.style.width = "100%";
+      draggedCard.style.height = "100%";
+      attachRemoveButton(slot, draggedCard);
+    }
+  });
+
+  // ✅ 모바일 터치 대응
+  slot.addEventListener("touchend", () => {
     if (draggedCard && !slot.querySelector("img")) {
       slot.appendChild(draggedCard);
       draggedCard.style.position = "absolute";

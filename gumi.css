@@ -210,13 +210,13 @@ body {
   }
 
   .card-container {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 5px;
     margin-top: 60px; /* 👈 카드 영역 아래로 */
   }
 
   .slot-container {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 5px;
     margin-top: 40px; /* 👈 슬롯 영역 아래로 */
   }
@@ -250,7 +250,7 @@ body {
     grid-template-columns: repeat(3, 1fr);
   }
   .slot-container {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
   .card,
   .slot {
